@@ -15,8 +15,6 @@ def split_calorie_count(data_file):
 
     for calorie in calories:
         calorie = calorie.strip()
-        print(calorie)
-        print(current_elf)
         if i == 0:
             calorie_count[current_elf] = [calorie]
             i += 1
@@ -31,3 +29,16 @@ def split_calorie_count(data_file):
 
     return calorie_count
         
+
+def calculate_most_calories(calorie_count):
+    most_calories = 0
+
+    for elf in calorie_count:
+        if count_calories(calorie_count[elf]) > most_calories:
+            most_calories = count_calories(calorie_count[elf])
+
+    return most_calories
+
+
+def find_most_elf_calories(calorie_data):
+    return calculate_most_calories(split_calorie_count(calorie_data))
