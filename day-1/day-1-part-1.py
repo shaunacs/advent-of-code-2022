@@ -45,4 +45,4 @@ def find_most_elf_calories(calorie_data):
 
 
 # Answer:
-print(find_most_elf_calories('./day-1-input-part-1.txt'))
+print(find_most_elf_calories('./day-1-input.txt'))
