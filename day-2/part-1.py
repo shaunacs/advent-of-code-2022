@@ -25,3 +25,13 @@ def win_or_lose(opponent, you):
         return 'Lose'
     if opponent == 'C' and you == 'Z':
         return 'Draw'
+
+
+def split_input(input_file):
+    game_data = open(input_file)
+    games = []
+
+    for line in game_data:
+        games.append(line.strip())
+    
+    return games
