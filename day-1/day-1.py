@@ -42,3 +42,7 @@ def calculate_most_calories(calorie_count):
 
 def find_most_elf_calories(calorie_data):
     return calculate_most_calories(split_calorie_count(calorie_data))
+
+
+# Answer:
+print(find_most_elf_calories('./day-1-input.txt'))
