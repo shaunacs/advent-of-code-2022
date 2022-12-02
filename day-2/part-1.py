@@ -35,3 +35,37 @@ def split_input(input_file):
         games.append(line.strip())
     
     return games
+
+
+def calculate_shape_score(shape):
+    if shape == 'X':
+        return 1
+    if shape == 'Y':
+        return 2
+    if shape == 'Z':
+        return 3
+
+
+def calculate_outcome_score(outcome):
+    if outcome == 'Lose':
+        return 0
+    if outcome == 'Draw':
+        return 3
+    if outcome == 'Win':
+        return 6
+
+
+def calculate_round_score(shape, outcome):
+    return calculate_shape_score(shape) + calculate_outcome_score(outcome)
+
+
+def calculate_total_score(input):
+    total = 0
+    for game in split_input(input):
+        total += calculate_round_score(game[2], win_or_lose(game[0], game[2]))
+    
+    return total
+
+
+#Answer
+print(calculate_total_score('./input.txt'))
