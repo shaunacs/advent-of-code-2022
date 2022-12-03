@@ -9,6 +9,8 @@ def split_input(input):
     return rucksacks
 
 
+
+
 def divide_rucksacks(rucksacks):
     rucksack_len = len(rucksacks)
 
@@ -48,5 +50,47 @@ def total_item_priorities(input):
     
     return total
 
-#Answer
-print(total_item_priorities('./input.txt'))
+
+def divide_groups(rucksacks):
+    grouped_rucksacks = {}
+    group_num = 1
+    i = 1
+
+    for rucksack in rucksacks:
+        if group_num not in grouped_rucksacks:
+            grouped_rucksacks[group_num] = [rucksack]
+        elif i != 3:
+            grouped_rucksacks[group_num].append(rucksack)
+            i += 1
+        else:
+            i = 1
+            group_num += 1
+            grouped_rucksacks[group_num] = [rucksack]
+    
+    return grouped_rucksacks
+
+
+def find_badge(group):
+    for item in group[0]:
+        if item in group[1] and item in group[2]:
+            return item
+
+
+def total_badge_priorities(input):
+    total = 0
+
+    rucksacks = split_input('./input.txt') 
+    groups = divide_groups(rucksacks)
+
+    for group in groups:
+        badge = find_badge(groups[group])
+        total += find_item_priority(badge)
+    
+    return total
+
+#Part 1 Answer
+#print(total_item_priorities('./input.txt'))
+
+
+
+print(total_badge_priorities('./input.txt'))
