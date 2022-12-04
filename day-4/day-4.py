@@ -59,6 +59,18 @@ def is_assignment_overlap(pair):
     else:
         return False
 
+
+def is_any_overlap(pair):
+    first_assignment = create_range_list(pair[0])
+    second_assignment = create_range_list(pair[1])
+
+    for assignment in first_assignment:
+        if assignment in second_assignment:
+            return True
+    
+    return False
+
+
 def count_overlap(input):
     pairs = split_input(input)
     counter = 0
@@ -66,7 +78,22 @@ def count_overlap(input):
     for pair in pairs:
         if is_assignment_overlap(pair):
             counter += 1
+
     return counter
 
-#Answer
+
+def count_any_overlap(input):
+    pairs = split_input(input)
+    counter = 0
+
+    for pair in pairs:
+        if is_any_overlap(pair):
+            counter += 1
+
+    return counter
+
+#Part 1 Answer
 print(count_overlap('./input.txt'))
+
+#Part 2 Answer
+print(count_any_overlap('./input.txt'))
