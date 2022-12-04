@@ -89,8 +89,7 @@ def total_badge_priorities(input):
     return total
 
 #Part 1 Answer
-#print(total_item_priorities('./input.txt'))
+print(total_item_priorities('./input.txt'))
 
-
-
+#Part 2 Answer
 print(total_badge_priorities('./input.txt'))
