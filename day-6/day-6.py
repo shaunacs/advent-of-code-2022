@@ -22,6 +22,16 @@ def find_marker(signal):
             end += 1
 
 
+def find_message(signal):
+    end = 14
+    marker = signal[:end]
+
+    for i, char in enumerate(signal):
+        if is_unique(marker):
+            return i + 13
+        else:
+            marker = signal[i:end]
+            end += 1
 
 
 
@@ -30,6 +40,9 @@ signal = open('./input.txt').read()
 
 # Part 1 Answer
 print(find_marker(signal))
+
+# Part 2 Answer
+print(find_message(signal))
 
 
 
